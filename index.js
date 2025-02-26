@@ -15,20 +15,19 @@ function generateUniqueID(a, b){
 
 
 function addAccount(userInfo){
-
     if (!Array.isArray(userInfo) || userInfo.length < 4) {
         return false;
       } //check if the array has all values
 
-    if(typeof(userInfo[0] !== String) && userInfo[0] === ""){
+    if(typeof(userInfo[0]) !== 'string' || userInfo[0].trim === ""){
         return false;
     } //check is the first name is not a String and is empty
 
-    if(typeof(userInfo[1] !== String) && userInfo[1] === ""){
+    if(typeof(userInfo[1]) !== 'string' || userInfo[1].trim === ""){
         return false;
     } //check is the last name is not a String and is empty
 
-    if(typeof(userInfo[2] !== String) && userInfo[2] === ""){
+    if(typeof(userInfo[2]) !== 'string' || userInfo[2].trim === ""){
         return false;
     } //check is the email is not a String and is empty
 
@@ -36,19 +35,19 @@ function addAccount(userInfo){
         return false;
     } //validator package galing , checks if it's an email
 
-    if (userInfo[3] > 18){
+    if (userInfo[3] !== 'number' && userInfo[3]<= 18){
         return false;
     }
 
     userInfo.push(generateUniqueID(userInfo[0], userInfo[1]));
 
     try {
-        appendFileSync('users.txt', userInfo);
-        console.log($userInfo, 'was appended to file!');
-      } catch (err) {
-        console.error('Something went wrong!');
-      } 
-
+        let data = userInfo.join(",") + "\n"; // Ensure data is properly formatted
+        appendFileSync('users.txt', data, 'utf8');
+        console.log(userInfo, 'was appended to file!');
+    } catch (err) {
+        console.error('Something went wrong!', err);
+    }
 } //end of addAccount()
 
 
@@ -60,6 +59,11 @@ console.log(generateUniqueID("Erin", "Reilley"));
 //to check add account
 addAccount(["Alan", "Turing", "aturing@w3c.com", 58]);
 addAccount(["Cleo", "Marie", "cmarie@email.com", 33]);
-addAccount(["Erin", "Reilley", "cmarie@email.com", 20]);
+addAccount(["Cleo", "Marie", "cmarie@email.com", 3]); //dapat di maprint
+addAccount(["Erin", "Reilley", "era@email.com", 20]);
+
+//dapat di maprint
+addAccount(["Zian", 100, "zzz", 22]);
+addAccount(["Zian", 100, "zzzz@email.com", 22]);
 
 export default {addAccount}
