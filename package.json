@@ -1,0 +1,23 @@
+{
+  "name": "exer-04-javascript-basics-part-2-lilynnn27",
+  "version": "1.0.0",
+  "description": "**Name:** Amistoso, Erin Reilley A. <br/>\r **Course:** BS Computer Science <br/>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/CMSC-100-2S24-25-U3L/exer-04-javascript-basics-part-2-lilynnn27.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CMSC-100-2S24-25-U3L/exer-04-javascript-basics-part-2-lilynnn27/issues"
+  },
+  "homepage": "https://github.com/CMSC-100-2S24-25-U3L/exer-04-javascript-basics-part-2-lilynnn27#readme",
+  "dependencies": {
+    "validator": "^13.12.0"
+  }
+}
