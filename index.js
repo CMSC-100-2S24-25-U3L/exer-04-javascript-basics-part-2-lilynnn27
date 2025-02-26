@@ -9,7 +9,11 @@ function generateUniqueID(a, b){
     //source for trimming: https://stackoverflow.com/questions/7463658/how-to-trim-a-string-to-n-chars-in-javascript
     let trimRandom = random.substring(0,len);
     let temp = a[0].concat(b);
-    let uniqueID = temp.concat(trimRandom).toLowerCase();    return uniqueID;
+    let uniqueID = temp.concat(trimRandom).toLowerCase();    
+
+    console.log(uniqueID);
+    
+    return uniqueID;
 } //end of generateUniqueID()
 
 
@@ -42,28 +46,13 @@ function addAccount(userInfo){
     userInfo.push(generateUniqueID(userInfo[0], userInfo[1]));
 
     try {
-        let data = userInfo.join(",") + "\n"; // Ensure data is properly formatted
+        let data = userInfo.join(",") + "\n"; //data is properly formatted
         appendFileSync('users.txt', data, 'utf8');
         console.log(userInfo, 'was appended to file!');
+        return true;
     } catch (err) {
         console.error('Something went wrong!', err);
     }
 } //end of addAccount()
 
-
-//to check generated Unique ID
-console.log(generateUniqueID("Alan", "Turing"));
-console.log(generateUniqueID("Cleo", "Marie"));
-console.log(generateUniqueID("Erin", "Reilley"));
-
-//to check add account
-addAccount(["Alan", "Turing", "aturing@w3c.com", 58]);
-addAccount(["Cleo", "Marie", "cmarie@email.com", 33]);
-addAccount(["Cleo", "Marie", "cmarie@email.com", 3]); //dapat di maprint
-addAccount(["Erin", "Reilley", "era@email.com", 20]);
-
-//dapat di maprint
-addAccount(["Zian", 100, "zzz", 22]);
-addAccount(["Zian", 100, "zzzz@email.com", 22]);
-
-export default {addAccount}
+export default {addAccount, generateUniqueID}
